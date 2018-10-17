@@ -15,13 +15,15 @@
         v-if="!nextQuestion"
         large
         outline
-        to="/result"
+        to="/resultv"
     >結果
     </v-btn>
   </div>
 </template>
 
 <script>
+  import {db} from '../plugins/firebase';
+
   export default {
     name: "Answer",
     computed: {
@@ -45,9 +47,15 @@
       },
     },
     mounted() {
+      // scoreのプラス
       if (this.isCorrect) {
         this.$store.commit('addScore', 10)
       }
+      //firestoreへの保存
+      db.collection('audience').add({
+        question: this.questionId,
+        answer: this.answerNumber()
+      })
     }
   }
 </script>

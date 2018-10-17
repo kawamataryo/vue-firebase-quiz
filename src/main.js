@@ -5,7 +5,9 @@ import './plugins/firebase'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Bars from 'vuebars'
 
+Vue.use(Bars)
 Vue.config.productionTip = false
 
 new Vue({
