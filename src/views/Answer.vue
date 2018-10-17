@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <v-icon large black v-if="isCorrect">panorama_fish_eye</v-icon>
-    <v-icon large black v-if="!isCorrect">clear</v-icon>
-    <h2>番号{{parseInt(correctAnswer) + 1}}</h2>
-    <h2>{{answerText}}</h2>
+  <div class="text-xs-center">
+    <template v-if="isCorrect">
+      <v-icon size="250" color="#45A1CF" >panorama_fish_eye</v-icon>
+      <h1 style="color: #45A1CF;" class="display-2 font-weight-bold">正解</h1>
+    </template>
+    <template v-if="!isCorrect">
+      <v-icon size="250" color="#DA6272" v-if="!isCorrect">clear</v-icon>
+      <h1 style="color: #DA6272;" class="display-2 font-weight-bold">失敗</h1>
+    </template>
+    <h2 class="display-1 mt-4 font-weight-bold">{{answerText}}</h2>
     <v-btn
         v-if="nextQuestion"
         large
-        outline
+        color="#fff"
+        block
+        class="mt-3 font-weight-bold"
         :to="'/question/' + nextQuestion"
     >次の問題へ
     </v-btn>
     <v-btn
         v-if="!nextQuestion"
         large
-        outline
-        to="/resultv"
+        color="#fff"
+        block
+        class="mt-3 font-weight-bold"
+        to="/result"
     >結果
     </v-btn>
   </div>
@@ -54,7 +63,7 @@
       //firestoreへの保存
       db.collection('audience').add({
         question: this.questionId,
-        answer: this.answerNumber()
+        answer: this.answerNumber
       })
     }
   }

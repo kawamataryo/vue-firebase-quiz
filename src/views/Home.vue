@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>ホーム</h1>
+    <img src="@/assets/homeTitle.png" class="top-image">
     <v-btn
         large
-        outline
+        color="#fff"
+        block
+        class="mt-3 font-weight-bold"
         to="/question/0"
     >問題スタート
     </v-btn>
@@ -18,3 +20,9 @@
     }
   }
 </script>
+
+<style>
+  .top-image {
+    max-width: 100%
+  }
+</style>
