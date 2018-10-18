@@ -6,15 +6,15 @@
     </template>
     <template v-if="!isCorrect">
       <v-icon size="250" color="#DA6272" v-if="!isCorrect">clear</v-icon>
-      <h1 style="color: #DA6272;" class="display-2 font-weight-bold">失敗</h1>
+      <h1 style="color: #DA6272;" class="display-2 font-weight-bold">不正解</h1>
     </template>
-    <h2 class="display-1 mt-4 font-weight-bold">{{answerText}}</h2>
+    <h2 class="display-1 mt-5 font-weight-bold"><span class="headline font-weight-bold">正解:</span> {{answerText}}</h2>
     <v-btn
         v-if="nextQuestion"
         large
         color="#fff"
         block
-        class="mt-3 font-weight-bold"
+        class="mt-5 font-weight-bold"
         :to="'/question/' + nextQuestion"
     >次の問題へ
     </v-btn>
