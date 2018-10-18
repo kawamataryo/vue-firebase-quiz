@@ -33,10 +33,12 @@
       >
         <apexcharts
             type="bar"
-            width="500"
             :options="{
               grid: {
                 show: false,
+              },
+              chart: {
+                width: '100%'
               },
               dataLabels: {
                 style: {
@@ -45,8 +47,13 @@
               },
               xaxis: {
                 categories: [1, 2, 3, 4]
-              }
-            }"
+              },
+              plotOptions: {
+                bar: {
+                  horizontal: false
+                }
+              },
+             }"
             :series="[{
               name: '選択数',
               data: [audience1.length, audience2.length, audience3.length, audience4.length]
