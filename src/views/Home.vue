@@ -1,13 +1,15 @@
 <template>
   <div>
-    <img src="@/assets/homeTitle.png" class="top-image">
+    <img src="@/assets/top.png" class="top-image mt-5">
     <v-btn
         large
-        color="#fff"
+        color="#FEAE05"
         block
+        dark
         class="mt-3 font-weight-bold"
         to="/question/0"
-    >問題スタート
+    ><v-icon v-icon color="#fff" left>touch_app</v-icon>
+      タッチスタート
     </v-btn>
   </div>
 </template>
