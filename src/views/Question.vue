@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1 class="display-2 mt-3 font-weight-bold">質問 {{parseInt(questionId) + 1}}</h1>
-    <p class="display-1 mt-3 font-weight-bold headline">{{problem}}</p>
+    <p class="display-1 mt-3 font-weight-bold headline mb-5 text-xs-left text-sm-center"
+       v-html="problem"></p>
     <div v-for="(answer, index) in answers" :key="index">
       <v-btn
           large
@@ -12,12 +13,47 @@
       >{{answer}}
       </v-btn>
     </div>
-    <bars
-        :data="[0,audience1.length, audience2.length, audience3.length, audience4.length]"
-        :gradient="['#6fa8dc', '#42b983']">
+    <v-btn
+        color="success"
+        dark
+        center
+        fab
+        fixed
+        right
+        @click="showAudience"
+    >
+      <v-icon>group</v-icon>
+    </v-btn>
+    <v-dialog
+        v-model="dialog"
+        width="500"
+    >
+      <v-card
+          color="#fff"
       >
-    </bars>
-    {{[audience1.length, audience2.length, audience3.length, audience4.length]}}
+        <apexcharts
+            type="bar"
+            width="500"
+            :options="{
+              grid: {
+                show: false,
+              },
+              dataLabels: {
+                style: {
+                  fontSize: '25px'
+                },
+              },
+              xaxis: {
+                categories: [1, 2, 3, 4]
+              }
+            }"
+            :series="[{
+              name: '選択数',
+              data: [audience1.length, audience2.length, audience3.length, audience4.length]
+            }]"
+        ></apexcharts>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -31,7 +67,7 @@
       apexcharts: VueApexCharts,
     },
     data: () => ({
-      dialog: true,
+      dialog: false,
       audience1: [],
       audience2: [],
       audience3: [],
@@ -65,6 +101,19 @@
             "==", "3"),
       }
     },
+    methods: {
+      showAudience: function () {
+        this.dialog = true
+      },
+    }
   }
 </script>
 
+<style>
+  .apexcharts-data-labels {
+    font-weight: bold !important;
+  }
+  .apexcharts-title-text {
+    font-weight: bold !important;
+  }
+</style>

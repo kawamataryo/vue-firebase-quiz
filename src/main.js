@@ -6,6 +6,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Bars from 'vuebars'
+import VueApexCharts from 'vue-apexcharts'
+
+Vue.use(VueApexCharts)
 
 Vue.use(Bars)
 Vue.config.productionTip = false
