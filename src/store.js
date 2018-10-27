@@ -44,7 +44,7 @@ export default new Vuex.Store({
         answerImages: [
           'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/tanuki%20(1).jpg?alt=media&token=56bddf1e-f817-4f2b-bf08-800d05390de1',
           'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika%20(1).JPG?alt=media&token=3a34ce7b-b33d-4f9b-b922-074e2e536e3f',
-          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/kikou%20(1).JPG?alt=media&token=9bc83f49-39b6-4b46-9ab3-bed010335681',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/kikou%20(2).JPG?alt=media&token=b8bb88fa-20ad-4365-9cc5-e4e0601d6817',
         ],
         nextQuestion: 3,
       },
