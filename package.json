@@ -11,6 +11,8 @@
     "@babel/polyfill": "^7.0.0-rc.1",
     "apexcharts": "^2.1.4",
     "firebase": "^5.5.4",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-apexcharts": "^1.2.2",
     "vue-router": "^3.0.1",
