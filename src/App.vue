@@ -5,7 +5,7 @@
         fixed
         height="10"
     ></v-system-bar>
-    <v-container>
+    <v-container class="mb-5">
       <router-view/>
     </v-container>
     <v-footer

@@ -16,7 +16,7 @@
         color="#fff"
         block
         class="mt-5 font-weight-bold"
-        :to="'/question/' + nextQuestion"
+        :to="`/sync/question/${nextQuestion}`"
     >次の問題へ
     </v-btn>
     <v-btn
@@ -35,7 +35,7 @@
   import {db} from '../plugins/firebase';
 
   export default {
-    name: "Answer",
+    name: "SyncAnswer",
     computed: {
       questionId: function () {
         return this.$route.params.question
