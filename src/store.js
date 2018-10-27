@@ -42,15 +42,15 @@ export default new Vuex.Store({
         ],
         correctAnswer: 1,
         answerImages: [
-          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/tanuki%20(1).jpg?alt=media&token=56bddf1e-f817-4f2b-bf08-800d05390de1',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika%20(1).JPG?alt=media&token=3a34ce7b-b33d-4f9b-b922-074e2e536e3f',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/kikou%20(1).JPG?alt=media&token=9bc83f49-39b6-4b46-9ab3-bed010335681',
         ],
         nextQuestion: 3,
       },
       {
         problem: "意外性あふれるフジタくん。<br>この後フジタくんは何をした？？",
-        questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/futta-faceup1.jpg?alt=media&token=1db2cb8f-e6a1-4669-bab6-9930e93ffbeb',
+        questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor0.jpg?alt=media&token=5e22711b-efa9-422a-aa60-b779844b4f0b',
         answers: [
           "答え1",
           "答え2",
@@ -58,7 +58,11 @@ export default new Vuex.Store({
           "答え4",
         ],
         correctAnswer: 3,
-        answerImages: [],
+        answerImages: [
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor0.jpg?alt=media&token=5e22711b-efa9-422a-aa60-b779844b4f0b',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor1.jpg?alt=media&token=f6b6b9d0-b2ed-4367-bc5b-eeab155c46ba',
+          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor2-c%20(1).jpg?alt=media&token=2cd2d86b-9f76-48d4-b632-5f91c5c0133f',
+        ],
         nextQuestion: 4,
       },
       {
