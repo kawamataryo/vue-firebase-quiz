@@ -5,53 +5,74 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    adminStatusKey: "VGfkzAca9pvaCm94CVyz",
     questions: [
       {
-        problem: "奇想天外な行動で僕らを楽しませてくれる藤田くん<br/>さて藤田くんが大学時代に実際にとってない行動とは？",
+        problem: "広島愛にあふれるフジタくん。そんなフジタくんの広島愛を表すエピソードとは？",
         answers: [
-          "広島から滋賀まで原付で走った",
-          "春のボーリング大会で震えていた",
-          "すき家でカープを大熱唱",
-          "びわこ大橋から飛び込んでみせた"
+          "どこでも「それいけカープ」を大熱唱する",
+          "部屋にもみじ饅頭を常備している",
+          "タコを見つけると「三原はタコが有名じゃけ！」と必ず言う",
+          " 部屋のBGMはいつもポルノグラフティ"
         ],
         correctAnswer: 3,
         nextQuestion: 1,
       },
       {
-        problem: "いすゞのトラックの唄をいつも口ずさんでいる音楽が大好きな藤田くん<br/>彼が得意とする楽器は？",
+        problem: " とっても友達思いなフジタくん。そんなフジタくんが大学の友人にやって上げたこととは？",
+        questionImage: "",
         answers: [
-          "ベース",
-          "ゼファー（バイク）",
-          "たぬきのお腹",
-          "りょうの頭"
+          "バイト明けの友達のためにご飯を作ってあげた。",
+          "出席できなかった授業に変わりに出席してあげた。",
+          "恋の悩みを聞いてくれた",
+          "友人の鼻毛をカットしてあげた"
         ],
         correctAnswer: 0,
+        answerImage: "",
         nextQuestion: 2,
       },
       {
-        problem: "大学時代三日三晩寝る間も惜しんで全力で生きていた藤田くん<br/>授業→ボーリング→カラオケ→バイト→テツマ→スマブラ→すき家。※ リピート×2<br/><br/>そんな彼が証券会社勤務時に、遊び疲れて大声で発した寝言とは？",
+        problem: "ユーモアあふれるフジタくん。大学自体の旅行で取らなかったでとらなかった行動は？",
+        questionImage: "",
         answers: [
-          "カープカープ広島、広島カープ！",
-          "ニキ、それ完全にロンやで！",
-          "俺フードファイターじゃけ！",
-          "よりつき!(右手上げながら)"
+          "厳島神社で、参拝時に気功砲を放った",
+          "石垣島で皆が釣りをしているなか一人素潜りで漁をした",
+          "カチカチ山で 悪だぬきを成敗した",
+          "宮島で鹿のものまねをした"
         ],
-        correctAnswer: 3,
+        correctAnswer: 1,
+        answerImage: "",
         nextQuestion: 3,
       },
       {
-        problem: "人を愛し、人に愛された藤田くん。<br/>さて、この中で藤田くんが一番愛してる人は誰でしょう",
+        problem: "意外性あふれるフジタくん。この後フジタくんは何をした？？",
+        questionImage: "@/assets/futta-faceup1.JPG",
         answers: [
-          "ツッキー",
-          "ニキ",
-          "ゆかちゃん",
-          "月原知哉",
+          "答え1",
+          "答え2",
+          "答え3",
+          "答え4"
         ],
-        correctAnswer: 2,
+        correctAnswer: 3,
+        answerImage: "",
+        nextQuestion: 4,
+      },
+      {
+        problem: "愛を貫くフジタくん。プロポーズの言葉は何だったでしょうか？",
+        questionImage: "",
+        answers: [
+          "寿司屋で「三原のタコの吸盤のように俺はお前を離さない」",
+          "黄金山の頂上で「結婚しようや」",
+          "マツダスタジアムで「カープよりお前が好きじゃけ」",
+          " 向島の漁船の光の下で「一緒に生きよう」",
+        ],
+        correctAnswer: 3,
+        answerImage: "",
         nextQuestion: null,
       }
     ],
-    score: 0
+    score: 0,
+    tableNumber: 0,
   },
   mutations: {
     addScore(state, payload) {
@@ -59,6 +80,9 @@ export default new Vuex.Store({
     },
     initScore(state) {
       state.score = 0
+    },
+    setTable(state, payload) {
+      state.tableNumber = payload
     }
   },
   actions: {}

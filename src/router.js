@@ -13,6 +13,11 @@ export default new Router({
       component: () => import('./views/Home.vue')
     },
     {
+      path: '/selecttable',
+      name: 'selecttable',
+      component: () => import('./views/SelectTable.vue')
+    },
+    {
       path: '/result',
       name: 'result',
       component: () => import('./views/Result.vue')
@@ -26,8 +31,22 @@ export default new Router({
       path: '/question/:question/answer/:answer',
       name: 'Answer',
       component: () => import('./views/Answer.vue')
-    }
-
+    },
+    {
+      path: '/sync/question/:question',
+      name: 'Question',
+      component: () => import('./views/SyncQuestion.vue')
+    },
+    {
+      path: '/sync/question/:question/answer/:answer',
+      name: 'Answer',
+      component: () => import('./views/SyncAnswer.vue')
+    },
+    {
+      path: '/admin/user',
+      name: 'home',
+      component: () => import('./views/Admin.vue')
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
