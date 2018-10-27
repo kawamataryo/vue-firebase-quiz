@@ -21,7 +21,6 @@
     },
     methods: {
       async changeAggregating() {
-        console.log(this.result[0].id)
       },
     }
   }

@@ -1,9 +1,11 @@
 <template>
   <div>
     <img src="@/assets/top.png" class="top-image mt-4">
-    <router-link to="/selecttable">
-      <img src="@/assets/button.png" class="top-button mt-4">
-    </router-link>
+    <div>
+      <router-link to="/selecttable">
+        <img src="@/assets/button.png" class="top-button mt-4">
+      </router-link>
+    </div>
   </div>
 </template>
 

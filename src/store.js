@@ -7,18 +7,19 @@ export default new Vuex.Store({
   state: {
     questions: [
       {
-        problem: "広島愛にあふれるフジタくん。そんなフジタくんの広島愛を表すエピソードとは？",
+        problem: "広島愛にあふれるフジタくん。<br>そんなフジタくんの広島愛を表すエピソードとは？",
         answers: [
           "どこでも「それいけカープ」を大熱唱する",
           "部屋にもみじ饅頭を常備している",
           "タコを見つけると「三原はタコが有名じゃけ！」と必ず言う",
           " 部屋のBGMはいつもポルノグラフティ"
         ],
-        correctAnswer: 3,
+        correctAnswer: 0,
+        answerImages: [],
         nextQuestion: 1,
       },
       {
-        problem: " とっても友達思いなフジタくん。そんなフジタくんが大学の友人にやって上げたこととは？",
+        problem: " とっても友達思いなフジタくん。<br>そんなフジタくんが大学の友人にやって上げたこととは？",
         questionImage: "",
         answers: [
           "バイト明けの友達のためにご飯を作ってあげた。",
@@ -27,37 +28,41 @@ export default new Vuex.Store({
           "友人の鼻毛をカットしてあげた"
         ],
         correctAnswer: 0,
-        answerImage: "",
+        answerImages: [],
         nextQuestion: 2,
       },
       {
-        problem: "ユーモアあふれるフジタくん。大学自体の旅行で取らなかったでとらなかった行動は？",
+        problem: "ユーモアあふれるフジタくん。<br>大学自体の旅行で取らなかったでとらなかった行動は？",
         questionImage: "",
         answers: [
           "厳島神社で、参拝時に気功砲を放った",
-          "石垣島で皆が釣りをしているなか一人素潜りで漁をした",
+          "石垣島で皆が釣りする中、一人素潜りで漁をした",
           "カチカチ山で 悪だぬきを成敗した",
-          "宮島で鹿のものまねをした"
+          "宮島で鹿のものまねをした",
         ],
         correctAnswer: 1,
-        answerImage: "",
+        answerImages: [
+          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+        ],
         nextQuestion: 3,
       },
       {
-        problem: "意外性あふれるフジタくん。この後フジタくんは何をした？？",
+        problem: "意外性あふれるフジタくん。<br>この後フジタくんは何をした？？",
         questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/futta-faceup1.jpg?alt=media&token=1db2cb8f-e6a1-4669-bab6-9930e93ffbeb',
         answers: [
           "答え1",
           "答え2",
           "答え3",
-          "答え4"
+          "答え4",
         ],
         correctAnswer: 3,
-        answerImage: "",
+        answerImages: [],
         nextQuestion: 4,
       },
       {
-        problem: "愛を貫くフジタくん。プロポーズの言葉は何だったでしょうか？",
+        problem: "愛を貫くフジタくん。<br>プロポーズの言葉は何だったでしょうか？",
         questionImage: "",
         answers: [
           "寿司屋で「三原のタコの吸盤のように俺はお前を離さない」",
@@ -66,7 +71,7 @@ export default new Vuex.Store({
           " 向島の漁船の光の下で「一緒に生きよう」",
         ],
         correctAnswer: 3,
-        answerImage: "",
+        answerImages: [],
         nextQuestion: null,
       }
     ],

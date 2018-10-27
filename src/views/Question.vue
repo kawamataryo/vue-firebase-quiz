@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--設問-->
     <h1 class="display-2 mt-3 font-weight-bold">質問 {{parseInt(questionId) + 1}}</h1>
     <p class="display-1 mt-3 font-weight-bold headline mb-5 text-xs-left text-sm-center"
        v-html="problem"></p>
@@ -19,17 +20,45 @@
         <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
       </v-layout>
     </v-img>
-    <div v-for="(answer, index) in answers" :key="index">
-      <v-btn
-          large
-          color="#fff"
-          block
-          class="mt-3 font-weight-bold"
-          :to="'/question/' + questionId + '/answer/' + index"
-      >{{answer}}
-      </v-btn>
-    </div>
+    <!--集計中ダイアログ-->
+    <v-dialog
+        v-model="aggregatingIcon"
+        persistent
+        width="400"
+    >
+      <v-card
+          color="white"
+      >
+        <v-card-text>
+          <h2>集計中</h2>
+          <p>回答が出揃うまでお待ちください。</p>
+          <v-progress-linear
+              indeterminate
+              color="primary"
+              class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <!--回答ボタン-->
+    <v-layout
+        row
+        wrap
+    >
+      <v-flex xs12 sm6 lg6 md6 v-for="(answer, index) in answers" :key="index">
+        <v-btn
+            large
+            color="#fff"
+            block
+            class="mt-3 font-weight-bold"
+            @click="toAnswer(questionId, index)"
+        >{{answer}}
+        </v-btn>
+      </v-flex>
+    </v-layout>
+    <!--オーディエンスボタン-->
     <v-btn
+        v-if="!syncUser"
         color="success"
         dark
         center
@@ -40,6 +69,7 @@
     >
       <v-icon>group</v-icon>
     </v-btn>
+    <!--オーディエンスグラフ-->
     <v-dialog
         v-model="dialog"
         width="500"
@@ -69,7 +99,7 @@
                   horizontal: false
                 }
               },
-             }"
+            }"
             :series="[{
               name: '選択数',
               data: [audience1.length, audience2.length, audience3.length, audience4.length]
@@ -83,11 +113,13 @@
 <script>
   import {db} from '../plugins/firebase'
   import VueApexCharts from 'vue-apexcharts'
+  import LoadingPanel from '../components/LoadingPanel'
 
   export default {
-    name: "Question",
+    name: "SyncQuestion",
     components: {
       apexcharts: VueApexCharts,
+      loadingPanel: LoadingPanel
     },
     data: () => ({
       dialog: false,
@@ -95,6 +127,12 @@
       audience2: [],
       audience3: [],
       audience4: [],
+      aggregating: [],
+      aggregatingIcon: false,
+      answer: {
+        questionId: 0,
+        answerId: 0,
+      }
     }),
     computed: {
       questionId: function () {
@@ -108,11 +146,15 @@
       },
       questionImage: function () {
         return this.$store.state.questions[this.questionId].questionImage
+      },
+      syncUser: function () {
+        return this.$store.state.syncUser
       }
     },
     firestore() {
       return {
         // firestoreのcommentsコレクションを参照
+        aggregating: db.collection('adminStatus').limit(1),
         audience1: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
             "==", "0"),
@@ -131,6 +173,26 @@
       showAudience: function () {
         this.dialog = true
       },
+      toAnswer: function (questionId, index) {
+        this.answer.questionId = questionId
+        this.answer.answerId = index
+        // 画面遷移制御ユーザーじゃなかったらそのまま回答画面へ
+        if (!this.syncUser) {
+          this.$router.push(
+              {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
+        }
+        // 集計中アイコンを表示
+        this.aggregatingIcon = true
+      },
+    },
+    watch: {
+      // 画面遷移制御のユーザーはfirebaseのレコード編集をトリガーに画面遷移を実行
+      aggregating: function () {
+        if (this.aggregatingIcon) {
+          this.$router.push(
+              {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
+        }
+      }
     }
   }
 </script>
@@ -139,7 +201,9 @@
   .apexcharts-data-labels {
     font-weight: bold !important;
   }
+
   .apexcharts-title-text {
     font-weight: bold !important;
   }
 </style>
+

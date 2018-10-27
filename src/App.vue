@@ -5,7 +5,7 @@
         fixed
         height="10"
     ></v-system-bar>
-    <v-container class="mb-5">
+    <v-container class="mb-5" grid-list-md>
       <router-view/>
     </v-container>
     <v-footer
@@ -16,7 +16,7 @@
   </v-app>
 </template>
 
-<style>
+<style lang="scss">
   body {
     background-image: url("assets/repeat.png");
     background-repeat: repeat;
@@ -27,12 +27,17 @@
     background-color: transparent !important;
   }
 
-  .v-btn--large {
-    font-size: 1.3rem;
-    heigt: 60px;
-  }
-
   .v-footer {
     min-height: 5px;
   }
+
+  .v-btn--large {
+    height: 65px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    .v-btn__content {
+      white-space: inherit;
+    }
+  }
 </style>
+;u
