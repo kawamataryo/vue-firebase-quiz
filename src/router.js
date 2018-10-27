@@ -33,16 +33,6 @@ export default new Router({
       component: () => import('./views/Answer.vue')
     },
     {
-      path: '/sync/question/:question',
-      name: 'Question',
-      component: () => import('./views/SyncQuestion.vue')
-    },
-    {
-      path: '/sync/question/:question/answer/:answer',
-      name: 'Answer',
-      component: () => import('./views/SyncAnswer.vue')
-    },
-    {
       path: '/admin/user',
       name: 'home',
       component: () => import('./views/Admin.vue')
