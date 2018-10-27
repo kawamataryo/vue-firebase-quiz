@@ -1,4 +1,6 @@
-# futta-marry
+# 結婚式余興で使うクイズアプリ
+
+firebaseとvue.jsで作った余興アプリ。
 
 ## Project setup
 ```
