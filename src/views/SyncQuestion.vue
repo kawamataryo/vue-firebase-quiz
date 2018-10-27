@@ -1,8 +1,26 @@
 <template>
   <div>
+    <!--設問-->
     <h1 class="display-2 mt-3 font-weight-bold">質問 {{parseInt(questionId) + 1}}</h1>
     <p class="display-1 mt-3 font-weight-bold headline mb-5 text-xs-left text-sm-center"
        v-html="problem"></p>
+    <!--質問イメージ画像-->
+    <v-img
+        v-if="questionImage"
+        :src="questionImage"
+        :lazy-src="questionImage"
+    >
+      <v-layout
+          slot="placeholder"
+          fill-height
+          align-center
+          justify-center
+          ma-0
+      >
+        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+      </v-layout>
+    </v-img>
+    <!--集計中ダイアログ-->
     <v-dialog
         v-model="aggregatingIcon"
         persistent
@@ -22,6 +40,7 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+    <!--回答ボタン-->
     <div v-for="(answer, index) in answers" :key="index">
       <v-btn
           large
@@ -32,6 +51,7 @@
       >{{answer}}
       </v-btn>
     </div>
+    <!--オーディエンスボタン-->
     <v-btn
         color="success"
         dark
@@ -43,6 +63,7 @@
     >
       <v-icon>group</v-icon>
     </v-btn>
+    <!--オーディエンスグラフ-->
     <v-dialog
         v-model="dialog"
         width="500"
@@ -117,6 +138,12 @@
       answers: function () {
         return this.$store.state.questions[this.questionId].answers
       },
+      questionImage: function () {
+        return this.$store.state.questions[this.questionId].questionImage
+      },
+      syncUser: function () {
+        return this.$store.state.syncUser
+      }
     },
     firestore() {
       return {
@@ -141,16 +168,23 @@
         this.dialog = true
       },
       toAnswer: function (questionId, index) {
+        // 画面遷移制御ユーザーじゃなかったらそのまま回答画面へ
+        if (!this.syncUser) {
+          this.$router.push(
+              {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
+        }
+        // 集計中アイコンを表示
         this.aggregatingIcon = true
         this.answer.questionId = questionId
         this.answer.answerId = index
-      }
+      },
     },
     watch: {
+      // 画面遷移制御のユーザーはfirebaseのレコード編集をトリガーに画面遷移を実行
       aggregating: function () {
         if (this.aggregatingIcon) {
           this.$router.push(
-              {path: `/sync/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
+              {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
         }
       }
     }

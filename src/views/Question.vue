@@ -3,6 +3,22 @@
     <h1 class="display-2 mt-3 font-weight-bold">質問 {{parseInt(questionId) + 1}}</h1>
     <p class="display-1 mt-3 font-weight-bold headline mb-5 text-xs-left text-sm-center"
        v-html="problem"></p>
+    <!--質問イメージ画像-->
+    <v-img
+        v-if="questionImage"
+        :src="questionImage"
+        :lazy-src="questionImage"
+    >
+      <v-layout
+          slot="placeholder"
+          fill-height
+          align-center
+          justify-center
+          ma-0
+      >
+        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+      </v-layout>
+    </v-img>
     <div v-for="(answer, index) in answers" :key="index">
       <v-btn
           large
@@ -90,6 +106,9 @@
       answers: function () {
         return this.$store.state.questions[this.questionId].answers
       },
+      questionImage: function () {
+        return this.$store.state.questions[this.questionId].questionImage
+      }
     },
     firestore() {
       return {

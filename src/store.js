@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    adminStatusKey: "VGfkzAca9pvaCm94CVyz",
     questions: [
       {
         problem: "広島愛にあふれるフジタくん。そんなフジタくんの広島愛を表すエピソードとは？",
@@ -46,7 +45,7 @@ export default new Vuex.Store({
       },
       {
         problem: "意外性あふれるフジタくん。この後フジタくんは何をした？？",
-        questionImage: "@/assets/futta-faceup1.JPG",
+        questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/futta-faceup1.jpg?alt=media&token=1db2cb8f-e6a1-4669-bab6-9930e93ffbeb',
         answers: [
           "答え1",
           "答え2",
@@ -71,8 +70,14 @@ export default new Vuex.Store({
         nextQuestion: null,
       }
     ],
+    // クイズの点数
     score: 0,
+    // 選択したテーブル
     tableNumber: 0,
+    // 制御用のレコードキー
+    adminStatusKey: "VGfkzAca9pvaCm94CVyz",
+    // 画面遷移制御ユーザーかどうかの判定（true:画面性を制御）
+    syncUser: true,
   },
   mutations: {
     addScore(state, payload) {
@@ -83,6 +88,9 @@ export default new Vuex.Store({
     },
     setTable(state, payload) {
       state.tableNumber = payload
+    },
+    setSyncUser(state, payload) {
+      state.syncUser = payload
     }
   },
   actions: {}
