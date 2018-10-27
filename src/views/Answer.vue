@@ -15,7 +15,11 @@
     </h2>
     <h2 class="display-1 font-weight-bold" style="font-size: 2rem!important">{{answerText}}</h2>
     <!--回答画像-->
-    <v-carousel v-if="answerImages.length > 0">
+    <v-carousel
+        v-if="answerImages.length > 0"
+        height="650"
+        class="mt-4"
+    >
       <v-carousel-item
           v-for="(img,index) in answerImages"
           :key="index"
