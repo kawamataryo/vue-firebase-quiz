@@ -87,6 +87,8 @@ export default new Vuex.Store({
     adminStatusKey: "VGfkzAca9pvaCm94CVyz",
     // 画面遷移制御ユーザーかどうかの判定（true:画面性を制御）
     syncUser: true,
+    // １問あたりの相談時間
+    consultationTime: 30
   },
   mutations: {
     addScore(state, payload) {
