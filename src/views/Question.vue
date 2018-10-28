@@ -69,42 +69,32 @@
     >
       <v-icon>group</v-icon>
     </v-btn>
-    <!--オーディエンスグラフ-->
+    <!--ダイアログ-->
     <v-dialog
         v-model="dialog"
-        width="500"
+        width="1000"
     >
       <v-card
           color="#fff"
+          class="pa-3"
       >
-        <apexcharts
-            type="bar"
-            :options="{
-              grid: {
-                show: false,
-              },
-              chart: {
-                width: '100%'
-              },
-              dataLabels: {
-                style: {
-                  fontSize: '25px'
-                },
-              },
-              xaxis: {
-                categories: [1, 2, 3, 4]
-              },
-              plotOptions: {
-                bar: {
-                  horizontal: false
-                }
-              },
-            }"
-            :series="[{
-              name: '選択数',
-              data: [audience1.length, audience2.length, audience3.length, audience4.length]
-            }]"
-        ></apexcharts>
+        <v-layout
+            row
+            wrap
+            align-end
+        >
+          <!--制限時間表示タイマー-->
+          <v-flex xs12 sm6>
+            <question-timer></question-timer>
+          </v-flex>
+          <!--オーディエンスグラフ-->
+          <v-flex xs12 sm6>
+            <audience-graph
+                :question-id="questionId"
+                :dialog="dialog"
+            ></audience-graph>
+          </v-flex>
+        </v-layout>
       </v-card>
     </v-dialog>
   </div>
@@ -112,21 +102,19 @@
 
 <script>
   import {db} from '../plugins/firebase'
-  import VueApexCharts from 'vue-apexcharts'
+  import QuestionTimer from '../components/Timer'
   import LoadingPanel from '../components/LoadingPanel'
+  import AudienceGraph from '../components/AudienceGraph'
 
   export default {
     name: "SyncQuestion",
     components: {
-      apexcharts: VueApexCharts,
-      loadingPanel: LoadingPanel
+      loadingPanel: LoadingPanel,
+      questionTimer: QuestionTimer,
+      audienceGraph: AudienceGraph,
     },
     data: () => ({
       dialog: false,
-      audience1: [],
-      audience2: [],
-      audience3: [],
-      audience4: [],
       aggregating: [],
       aggregatingIcon: false,
       answer: {
@@ -155,24 +143,14 @@
       return {
         // firestoreのcommentsコレクションを参照
         aggregating: db.collection('adminStatus').limit(1),
-        audience1: db.collection('audience').where("question", "==", this.questionId).where(
-            "answer",
-            "==", "0"),
-        audience2: db.collection('audience').where("question", "==", this.questionId).where(
-            "answer",
-            "==", "1"),
-        audience3: db.collection('audience').where("question", "==", this.questionId).where(
-            "answer",
-            "==", "2"),
-        audience4: db.collection('audience').where("question", "==", this.questionId).where(
-            "answer",
-            "==", "3"),
       }
     },
     methods: {
+      // オーディエンス表示
       showAudience: function () {
         this.dialog = true
       },
+      // 回答への遷移
       toAnswer: function (questionId, index) {
         this.answer.questionId = questionId
         this.answer.answerId = index
@@ -196,14 +174,3 @@
     }
   }
 </script>
-
-<style>
-  .apexcharts-data-labels {
-    font-weight: bold !important;
-  }
-
-  .apexcharts-title-text {
-    font-weight: bold !important;
-  }
-</style>
-
