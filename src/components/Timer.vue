@@ -3,7 +3,7 @@
     <v-progress-circular
         :rotate="360"
         :size="400"
-        :width="30"
+        :width="20"
         :value="value * (100/limit)"
         :color="color"
     >

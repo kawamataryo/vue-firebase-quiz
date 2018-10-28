@@ -31,7 +31,12 @@
                 },
               },
               xaxis: {
-                categories: labels
+                categories: labels,
+                labels: {
+                  style: {
+                    fontSize: '20px',
+                  }
+                }
               },
               plotOptions: {
                 bar: {
