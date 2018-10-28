@@ -17,8 +17,10 @@
     <!--回答画像-->
     <v-carousel
         v-if="answerImages.length > 0"
-        height="650"
+        :height="650"
         class="mt-4"
+        :cycle="false"
+        hide-delimiters
     >
       <v-carousel-item
           v-for="(img,index) in answerImages"
