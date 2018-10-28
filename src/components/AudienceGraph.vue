@@ -5,18 +5,24 @@
         v-if="dialog"
         :options="{
               grid: {
-                show: false,
+                show: true,
               },
               chart: {
-                width: '100%'
+                width: '100%',
+                height: 464,
               },
               dataLabels: {
                 style: {
-                  fontSize: '25px'
+                  fontSize: '20px',
                 },
               },
               xaxis: {
-                categories: [1, 2, 3, 4]
+                categories: [1, 2, 3, 4],
+                labels: {
+                  style: {
+                    fontSize: '25px',
+                  }
+                }
               },
               plotOptions: {
                 bar: {
