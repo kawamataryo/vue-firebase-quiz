@@ -9,7 +9,7 @@
               },
               chart: {
                 width: '100%',
-                height: 464,
+                height: '464px',
               },
               dataLabels: {
                 style: {
@@ -17,7 +17,7 @@
                 },
               },
               xaxis: {
-                categories: [1, 2, 3, 4],
+                categories: ['A', 'B', 'C', 'D'],
                 labels: {
                   style: {
                     fontSize: '25px',

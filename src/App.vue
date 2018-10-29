@@ -1,18 +1,18 @@
 <template>
   <v-app>
-    <v-system-bar
-        color="red"
-        fixed
-        height="10"
-    ></v-system-bar>
+    <!--<v-system-bar-->
+        <!--color="red"-->
+        <!--fixed-->
+        <!--height="10"-->
+    <!--&gt;</v-system-bar>-->
     <v-container class="mb-5" grid-list-md>
       <router-view/>
     </v-container>
-    <v-footer
-        color="red"
-        fixed
-        height="10"
-    ></v-footer>
+    <!--<v-footer-->
+        <!--color="red"-->
+        <!--fixed-->
+        <!--height="10"-->
+    <!--&gt;</v-footer>-->
   </v-app>
 </template>
 
@@ -40,4 +40,3 @@
     }
   }
 </style>
-;u

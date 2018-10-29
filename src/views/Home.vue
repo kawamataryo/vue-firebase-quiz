@@ -1,6 +1,7 @@
 <template>
   <div>
-    <img src="@/assets/top.png" class="top-image mt-4">
+    <img src="@/assets/top-pc.png" class="top-image hidden-xs-only">
+    <img src="@/assets/top.png" class="top-image mt-4 hidden-sm-and-up">
     <div>
       <router-link to="/selecttable">
         <img src="@/assets/button.png" class="top-button mt-4">
