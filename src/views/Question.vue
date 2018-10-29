@@ -21,25 +21,9 @@
       </v-layout>
     </v-img>
     <!--集計中ダイアログ-->
-    <v-dialog
-        v-model="aggregatingIcon"
-        persistent
-        width="400"
-    >
-      <v-card
-          color="white"
-      >
-        <v-card-text>
-          <h2>集計中</h2>
-          <p>回答が出揃うまでお待ちください。</p>
-          <v-progress-linear
-              indeterminate
-              color="primary"
-              class="mb-0"
-          ></v-progress-linear>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
+    <loading-panel
+        :dialog="aggregatingIcon"
+    ></loading-panel>
     <!--回答ボタン-->
     <v-layout
         row
