@@ -15,7 +15,7 @@
     name: 'home',
     mounted() {
       this.$store.commit('initScore')
-    }
+    },
   }
 </script>
 
