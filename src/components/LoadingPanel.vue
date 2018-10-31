@@ -9,7 +9,7 @@
     >
       <v-card-text>
         <h2>集計中</h2>
-        <p>回答が出揃うまでお待ちください。</p>
+        <p>{{comment}}</p>
         <v-progress-linear
             indeterminate
             color="primary"
@@ -25,7 +25,8 @@
   export default {
     name: "LoadingPanel",
     props: [
-      "dialog"
+      "dialog",
+      "comment"
     ],
   }
 </script>

@@ -23,6 +23,7 @@
     <!--集計中ダイアログ-->
     <loading-panel
         :dialog="aggregatingIcon"
+        comment="皆様の選択が完了するまでこのままお待ち下さい。"
     ></loading-panel>
     <!--回答ボタン-->
     <v-layout
@@ -34,7 +35,7 @@
             large
             color="#fff"
             block
-            class="mt-3 font-weight-bold"
+            :class="['mt-3', 'font-weight-bold', 'answer-btn', `answer-btn-${index}`]"
             @click="toAnswer(questionId, index)"
         >{{answer}}
         </v-btn>
@@ -125,7 +126,6 @@
     },
     firestore() {
       return {
-        // firestoreのcommentsコレクションを参照
         aggregating: db.collection('adminStatus').limit(1),
       }
     },
@@ -158,3 +158,48 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .answer-btn {
+    padding-left: 50px;
+    position: relative;
+    border: 2px solid #FFD700 !important;
+    border-radius: 5px;
+    &::after {
+      content: "";
+      width: 38px;
+      height: 38px;
+      font-size: 26px;
+      background-color: red;
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: 2%;
+    }
+    &.answer-btn-0 {
+      &::after {
+        content: "A";
+      }
+    }
+
+    &.answer-btn-1 {
+      &::after {
+        content: "B";
+      }
+    }
+
+    &.answer-btn-2 {
+      &::after {
+        content: "C";
+      }
+    }
+
+    &.answer-btn-3 {
+      &::after {
+        content: "D";
+      }
+    }
+  }
+
+
+</style>
