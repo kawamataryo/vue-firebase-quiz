@@ -85,9 +85,11 @@
         this.$store.commit('addScore', 10)
       }
       //firestoreへの保存
+      let now = new Date()
       db.collection('audience').add({
         question: this.questionId,
-        answer: this.answerNumber
+        answer: this.answerNumber,
+        createdAt: now
       })
     }
   }
