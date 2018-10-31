@@ -55,21 +55,23 @@
       audience4: [],
     }),
     firestore() {
+      let now = new Date()
+      let minus60 = new Date(now.setMinutes(now.getMinutes() - 60))
       return {
         // firestoreのcommentsコレクションを参照
-        aggregating: db.collection('adminStatus').limit(1),
+        pagingWait: db.collection('waitStatus').limit(1),
         audience1: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "0"),
+            "==", "0").where("createdAt", ">=", minus60),
         audience2: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "1"),
+            "==", "1").where("createdAt", ">=", minus60),
         audience3: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "2"),
+            "==", "2").where("createdAt", ">=", minus60),
         audience4: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "3"),
+            "==", "3").where("createdAt", ">=", minus60),
       }
     },
   }

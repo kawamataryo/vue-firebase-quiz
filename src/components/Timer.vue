@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-progress-circular
-        :rotate="360"
-        :size="400"
+        :rotate="-90"
+        :size="380"
         :width="20"
         :value="value * (100/limit)"
         :color="color"
@@ -39,14 +39,13 @@
     },
     methods: {
       timerStart: function () {
-        this.value += 1
         this.starting = true
         this.interval = setInterval(() => {
-          if (this.value === this.limit) {
-            this.color = "warning"
+          if (this.value === 0) {
+            this.color = "red"
             return
           }
-          this.value += 1
+          this.value -= 1
         }, 1000)
       },
       timerStop: function () {
@@ -55,11 +54,14 @@
       },
       timerClear: function () {
         this.starting = false
-        this.value = 0
+        this.value = this.limit
         this.color = "success"
         clearInterval(this.interval)
       },
     },
+    mounted() {
+      this.value = this.limit
+    }
   }
 </script>
 

@@ -29,7 +29,7 @@ export const initialState = {
       ],
       correctAnswer: 0,
       answerImages: [
-          'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/niku.jpg?alt=media&token=babed7bd-9a33-4fac-82c8-1813f4987fc6'
+        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/niku.jpg?alt=media&token=babed7bd-9a33-4fac-82c8-1813f4987fc6'
       ],
       nextQuestion: 2,
     },
@@ -85,9 +85,7 @@ export const initialState = {
   score: 0,
   // 選択したテーブル
   tableNumber: 0,
-  // 制御用のレコードキー
-  adminStatusKey: "VGfkzAca9pvaCm94CVyz",
-  // 画面遷移制御ユーザーかどうかの判定（true:画面性を制御）
+  // 画面遷移制御ユーザーかどうかの判定（true:遷移を制御）
   syncUser: true,
   // １問あたりの相談時間
   consultationTime: 30

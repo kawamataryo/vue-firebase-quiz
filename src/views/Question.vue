@@ -22,7 +22,7 @@
     </v-img>
     <!--集計中ダイアログ-->
     <loading-panel
-        :dialog="aggregatingIcon"
+        :dialog="pagingWaitDialog"
         comment="皆様の選択が完了するまでこのままお待ち下さい。"
     ></loading-panel>
     <!--回答ボタン-->
@@ -100,8 +100,8 @@
     },
     data: () => ({
       dialog: false,
-      aggregating: [],
-      aggregatingIcon: false,
+      pagingWait: [],
+      pagingWaitDialog: false,
       answer: {
         questionId: 0,
         answerId: 0,
@@ -126,7 +126,7 @@
     },
     firestore() {
       return {
-        aggregating: db.collection('adminStatus').limit(1),
+        pagingWait: db.collection('waitStatus').orderBy("createdAt", "desc").limit(1),
       }
     },
     methods: {
@@ -144,13 +144,13 @@
               {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
         }
         // 集計中アイコンを表示
-        this.aggregatingIcon = true
+        this.pagingWaitDialog = true
       },
     },
     watch: {
       // 画面遷移制御のユーザーはfirebaseのレコード編集をトリガーに画面遷移を実行
-      aggregating: function () {
-        if (this.aggregatingIcon) {
+      pagingWait: function () {
+        if (this.pagingWaitDialog) {
           this.$router.push(
               {path: `/question/${this.answer.questionId}/answer/${this.answer.answerId}`})
         }

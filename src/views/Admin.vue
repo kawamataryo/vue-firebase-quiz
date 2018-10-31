@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn @click="changeAggregating()">集計中解除</v-btn>
+    <v-btn @click="WaitRelease()">遷移制御解除</v-btn>
   </div>
 </template>
 
@@ -16,12 +16,24 @@
     },
     firestore() {
       return {
-        result: db.collection('adminStatus')
+        result: db.collection('waitStatus')
       }
     },
     methods: {
-      async changeAggregating() {
-      },
+      WaitRelease: function () {
+        // trueの追加
+        db.collection('waitStatus').add({
+          status: true,
+          createdAt: new Date
+        })
+        // 1秒後falseの追加。次の遷移を制御するため。
+        setTimeout(function () {
+          db.collection('waitStatus').add({
+            status: false,
+            createdAt: new Date
+          })
+        }, 1000)
+      }
     }
   }
 </script>

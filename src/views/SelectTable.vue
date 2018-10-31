@@ -18,7 +18,7 @@
     </v-layout>
     <!--集計中ダイアログ-->
     <loading-panel
-        :dialog="aggregatingIcon"
+        :dialog="pagingWaitDialog"
         comment="皆様の選択が完了するまでこのままお待ち下さい。"
     ></loading-panel>
   </div>
@@ -35,8 +35,8 @@
     },
     data() {
       return {
-        aggregating: [],
-        aggregatingIcon: false,
+        pagingWait: [],
+        pagingWaitDialog: false,
       }
     },
     methods: {
@@ -46,20 +46,20 @@
           this.$store.commit('setSyncUser', false)
           this.$router.push("/question/0")
         } else {
-          this.aggregatingIcon = true
+          this.pagingWaitDialog = true
           this.$store.commit('setSyncUser', true)
         }
       }
     },
     firestore() {
       return {
-        aggregating: db.collection('adminStatus').limit(1),
+        pagingWait: db.collection('waitStatus').limit(1),
       }
     },
     watch: {
       // 画面遷移制御のユーザーはfirebaseのレコード編集をトリガーに画面遷移を実行
-      aggregating: function () {
-        if (this.aggregatingIcon) {
+      pagingWait: function () {
+        if (this.pagingWaitDialog) {
           this.$router.push(
               {path: `/question/0`})
         }
