@@ -26,13 +26,13 @@
           status: true,
           createdAt: new Date
         })
-        // 1秒後falseの追加。次の遷移を制御するため。
+        // 0.1秒後falseの追加。次の遷移を制御するため。
         setTimeout(function () {
           db.collection('waitStatus').add({
             status: false,
             createdAt: new Date
           })
-        }, 1000)
+        }, 100)
       }
     }
   }

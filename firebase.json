@@ -12,10 +12,16 @@
         "destination": "/index.html"
       }
     ],
-    "hosting": {
-      "headers": [
-        { "source":"/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
-      ]
-    }
+    "headers": [
+      {
+        "source": "/service-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0, no-cache"
+          }
+        ]
+      }
+    ]
   }
 }

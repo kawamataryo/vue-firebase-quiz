@@ -9,13 +9,15 @@
         style="margin: auto; cursor: pointer;"
         class="mb-3"
     ></v-img>
-    <v-layout row wrap>
-      <v-flex v-for="i in 16" :key="`${i}`" xs3>
-        <v-btn fab large @click="setTableAndToQuestion(i)">
-          {{i}}番
-        </v-btn>
-      </v-flex>
-    </v-layout>
+    <div class="table-wrap">
+      <v-layout row wrap>
+        <v-flex v-for="i in 16" :key="`${i}`" xs3>
+          <v-btn fab large @click="setTableAndToQuestion(i)">
+            <span class="font-weight-bold">{{i}}</span>番
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </div>
     <!--集計中ダイアログ-->
     <loading-panel
         :dialog="pagingWaitDialog"
@@ -53,7 +55,7 @@
     },
     firestore() {
       return {
-        pagingWait: db.collection('waitStatus').limit(1),
+        pagingWait: db.collection('waitStatus').orderBy("createdAt", "desc").limit(1),
       }
     },
     watch: {
@@ -67,3 +69,14 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .table-wrap {
+    background-color: #fff;
+    border: solid 2px #ccc;
+    padding: 15px 0;
+    border-radius: 2%;
+    button {
+    }
+  }
+</style>
