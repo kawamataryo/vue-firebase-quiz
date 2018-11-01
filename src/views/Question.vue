@@ -161,7 +161,7 @@
 
 <style lang="scss">
   .answer-btn {
-    padding-left: 50px;
+    padding-left: 55px;
     position: relative;
     border: 2px solid #FFD700 !important;
     border-radius: 5px;

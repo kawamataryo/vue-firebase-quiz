@@ -13,21 +13,31 @@
     <h2 class="display-1 headline mt-5 font-weight-bold">正解:
       <span class="mb-0 display-1 font-weight-bold mb-1">{{answerNumber + 1}}</span>
     </h2>
-    <h2 class="display-1 font-weight-bold" style="font-size: 2rem!important">{{answerText}}</h2>
+    <h2 class="display-1 font-weight-bold" style="font-size: 2rem!important">
+      {{answerText}}
+      <v-btn @click="showAnswerImage" v-if="answerImages.length > 0" color="primary"
+             class="font-weight-bold" fab small>
+        <v-icon>image</v-icon>
+      </v-btn>
+    </h2>
     <!--回答画像-->
-    <v-carousel
-        v-if="answerImages.length > 0"
-        :height="650"
-        class="mt-4"
-        :cycle="false"
-        hide-delimiters
+    <v-dialog
+        v-model="answerImageDialog"
+        max-width="900"
     >
-      <v-carousel-item
-          v-for="(img,index) in answerImages"
-          :key="index"
-          :src="img"
-      ></v-carousel-item>
-    </v-carousel>
+      <v-carousel
+          height="600"
+          class="mt-4"
+          :cycle="false"
+          hide-delimiters
+      >
+        <v-carousel-item
+            v-for="(img,index) in answerImages"
+            :key="index"
+            :src="img"
+        ></v-carousel-item>
+      </v-carousel>
+    </v-dialog>
     <!--次へボタン-->
     <v-btn
         v-if="nextQuestion"
@@ -56,6 +66,11 @@
 
   export default {
     name: "Answer",
+    data() {
+      return {
+        answerImageDialog: false,
+      }
+    },
     computed: {
       questionId: function () {
         return this.$route.params.question
@@ -78,6 +93,11 @@
       isCorrect: function () {
         return this.correctAnswer === this.answerNumber
       },
+    },
+    methods: {
+      showAnswerImage: function () {
+        this.answerImageDialog = true
+      }
     },
     mounted() {
       // scoreのプラス
