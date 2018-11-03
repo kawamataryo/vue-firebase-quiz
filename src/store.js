@@ -7,34 +7,36 @@ Vue.use(Vuex)
 export const initialState = {
   questions: [
     {
-      problem: "広島愛にあふれるフジタくん。<br>そんなフジタくんの広島愛を表すエピソードとは？",
+      problem: "大学時代、滋賀県にいながらも広島愛を押し出してきたエピソードとは？",
       answers: [
         "どこでも「それいけカープ」を大熱唱する",
-        "部屋にもみじ饅頭を常備している",
-        "タコを見つけると「三原はタコが有名じゃけ！」と必ず言う",
-        " 部屋のBGMはいつもポルノグラフティ"
+        "タコを見ると必ず、「三原はタコが有名じゃけ！」と言う",
+        "関西弁に全く染まらず、広島弁を押し通した ",
+        "ドライブで必ず流すBGMはポルノグラフティ "
       ],
       correctAnswer: 0,
       answerImages: [],
+      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/2EYflBja9Gc?controls=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
       nextQuestion: 1,
     },
     {
-      problem: " とっても友達思いなフジタくん。<br>そんなフジタくんが大学の友人にやって上げたこととは？",
+      problem: "大学時代、苦労してた友人のためにフジタ君してあげたことは？",
       questionImage: "",
       answers: [
         "バイト明けの友達のためにご飯を作ってあげた。",
-        "出席できなかった授業に変わりに出席してあげた。",
-        "恋の悩みを聞いてくれた",
-        "友人の鼻毛をカットしてあげた"
+        "友達が出席できない授業を変わりに受けてあげた。 ",
+        "恋の悩みを朝まで文句を言わずに聞いてくれた ",
+        "体調を崩した友人に薬を届けてあげた"
       ],
       correctAnswer: 0,
       answerImages: [
         'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/niku.jpg?alt=media&token=babed7bd-9a33-4fac-82c8-1813f4987fc6'
       ],
+      answerMovieTag: "",
       nextQuestion: 2,
     },
     {
-      problem: "ユーモアあふれるフジタくん。<br>大学自体の旅行で取らなかったでとらなかった行動は？",
+      problem: "大学時代、旅行中にフジタ君が取らなかった行動は？",
       questionImage: "",
       answers: [
         "厳島神社で、参拝時に気功砲を放った",
@@ -45,39 +47,39 @@ export const initialState = {
       correctAnswer: 1,
       answerImages: [
         'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/tanuki%20(1).jpg?alt=media&token=56bddf1e-f817-4f2b-bf08-800d05390de1',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika%20(1).JPG?alt=media&token=3a34ce7b-b33d-4f9b-b922-074e2e536e3f',
         'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/kikou%20(2).JPG?alt=media&token=b8bb88fa-20ad-4365-9cc5-e4e0601d6817',
+        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika%20(1).JPG?alt=media&token=3a34ce7b-b33d-4f9b-b922-074e2e536e3f',
+        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika-tukky.JPG?alt=media&token=241faee7-fc5f-41f2-8808-7e6eae5966d0',
       ],
+      answerMovieTag: "",
       nextQuestion: 3,
     },
     {
-      problem: "意外性あふれるフジタくん。<br>この後フジタくんは何をした？？",
-      questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor0.jpg?alt=media&token=5e22711b-efa9-422a-aa60-b779844b4f0b',
+      problem: "ズバリこの後フジタ君は何をした？ ",
+      questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/IMG_0483%20(1).jpg?alt=media&token=94f3aee1-6aa9-4c7f-858d-e75f6d1ba21e',
       answers: [
-        "答え1",
-        "答え2",
-        "答え3",
-        "答え4",
+        "日本酒を瓶毎一気飲みし始めた",
+        "部屋中にファブリーズを噴射し踊った",
+        "百面相を披露した",
+        "カメラに向かって投げキッス",
       ],
-      correctAnswer: 3,
-      answerImages: [
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor0.jpg?alt=media&token=5e22711b-efa9-422a-aa60-b779844b4f0b',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor1.jpg?alt=media&token=f6b6b9d0-b2ed-4367-bc5b-eeab155c46ba',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/humor2-c%20(1).jpg?alt=media&token=2cd2d86b-9f76-48d4-b632-5f91c5c0133f',
-      ],
+      correctAnswer: 2,
+      answerImages: [],
+      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/_j4uw2m6Qgk?controls=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
       nextQuestion: 4,
     },
     {
-      problem: "愛を貫くフジタくん。<br>プロポーズの言葉は何だったでしょうか？",
+      problem: "フジタ君のプロポーズの言葉はどれ？",
       questionImage: "",
       answers: [
-        "寿司屋で「三原のタコの吸盤のように俺はお前を離さない」",
-        "黄金山の頂上で「結婚しようや」",
-        "マツダスタジアムで「カープよりお前が好きじゃけ」",
-        " 向島の漁船の光の下で「一緒に生きよう」",
+        "高給寿司屋で「三原のタコの吸盤の様にお前を離さない」",
+        "黄金山の夜景の下で「幸せにするけえ、おれと結婚してください」",
+        "マツダスタジアムで「生涯をカープとゆかに捧げます」",
+        "向島の怪しい漁船の光の下で「ずっと二人で一緒に生きていこう」",
       ],
       correctAnswer: 3,
       answerImages: [],
+      answerMovieTag: "",
       nextQuestion: null,
     }
   ],
@@ -88,7 +90,10 @@ export const initialState = {
   // 画面遷移制御ユーザーかどうかの判定（true:遷移を制御）
   syncUser: true,
   // １問あたりの相談時間
-  consultationTime: 30
+  consultationTime: 30,
+  // テレフォンで移す画像
+  phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/phone-mock1.png?alt=media&token=2fddbbc3-e675-4062-b936-f822bfdc9c89"
+
 }
 
 const mutations = {

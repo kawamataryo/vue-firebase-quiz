@@ -35,52 +35,110 @@
             large
             color="#fff"
             block
+            :ref="`answer-${index}`"
             :class="['mt-3', 'font-weight-bold', 'answer-btn', `answer-btn-${index}`]"
             @click="toAnswer(questionId, index)"
         >{{answer}}
         </v-btn>
       </v-flex>
     </v-layout>
-    <!--オーディエンスボタン-->
+    <!--タイマーボタン-->
     <v-btn
         v-if="!syncUser"
         color="success"
         dark
-        center
-        fab
+        bottom
         fixed
-        right
-        @click="showAudience"
+        left
+        fab
+        @click="showTimer"
     >
-      <v-icon>group</v-icon>
+      <v-icon>timer</v-icon>
     </v-btn>
-    <!--ダイアログ-->
+    <v-speed-dial
+        v-model="fab"
+        fixed
+        bottom
+        right
+        direction="top"
+        transition="slide-y-reverse-transition"
+    >
+      <!--ツールボタン-->
+      <v-btn
+          slot="activator"
+          color="blue darken-2"
+          v-model="fab"
+          dark
+          fab
+      >
+        <v-icon>account_circle</v-icon>
+        <v-icon>close</v-icon>
+      </v-btn>
+      <!--テレフォンボタン-->
+      <v-btn
+          v-if="!syncUser"
+          color="success"
+          dark
+          fab
+          @click="showPhone"
+      >
+        <v-icon>call</v-icon>
+      </v-btn>
+      <!--オーディエンスボタン-->
+      <v-btn
+          v-if="!syncUser"
+          color="primary"
+          dark
+          fab
+          @click="showAudience"
+      >
+        <v-icon>group</v-icon>
+      </v-btn>
+      <!--50:50ボタン-->
+      <v-btn
+          v-if="!syncUser"
+          color="pink"
+          dark
+          fab
+          @click="halfAnswer"
+      >
+        <span style="font-weight: bold; font-size: 16px">50:50</span>
+      </v-btn>
+    </v-speed-dial>
+    <!--制限時間表示タイマー-->
     <v-dialog
-        v-model="dialog"
-        width="1000"
+        v-model="timerDialog"
+        width="600"
     >
       <v-card
           color="#fff"
           class="pa-3"
       >
-        <v-layout
-            row
-            wrap
-            align-end
-        >
-          <!--制限時間表示タイマー-->
-          <v-flex xs12 sm6>
-            <question-timer></question-timer>
-          </v-flex>
-          <!--オーディエンスグラフ-->
-          <v-flex xs12 sm6>
-            <audience-graph
-                :question-id="questionId"
-                :dialog="dialog"
-            ></audience-graph>
-          </v-flex>
-        </v-layout>
+        <question-timer></question-timer>
       </v-card>
+    </v-dialog>
+    <!--オーディエンス-->
+    <v-dialog
+        v-model="audienceDialog"
+        width="700"
+    >
+      <v-card
+          color="#fff"
+          class="pa-3"
+      >
+        <!--オーディエンスグラフ-->
+        <audience-graph
+            :question-id="questionId"
+            :dialog="audienceDialog"
+        ></audience-graph>
+      </v-card>
+    </v-dialog>
+    <!--テレフォンダイアログ-->
+    <v-dialog
+        v-model="phoneDialog"
+        width="300"
+    >
+      <v-img :src="phoneImageUrl"></v-img>
     </v-dialog>
   </div>
 </template>
@@ -90,6 +148,7 @@
   import QuestionTimer from '../components/Timer'
   import LoadingPanel from '../components/LoadingPanel'
   import AudienceGraph from '../components/AudienceGraph'
+  import _ from 'lodash'
 
   export default {
     name: "SyncQuestion",
@@ -99,9 +158,12 @@
       audienceGraph: AudienceGraph,
     },
     data: () => ({
-      dialog: false,
+      fab: false,
+      timerDialog: false,
       pagingWait: [],
       pagingWaitDialog: false,
+      phoneDialog: false,
+      audienceDialog: false,
       answer: {
         questionId: 0,
         answerId: 0,
@@ -120,8 +182,14 @@
       questionImage: function () {
         return this.$store.state.questions[this.questionId].questionImage
       },
+      correctAnswer: function () {
+        return this.$store.state.questions[this.questionId].correctAnswer
+      },
       syncUser: function () {
         return this.$store.state.syncUser
+      },
+      phoneImageUrl: function () {
+        return this.$store.state.phoneImageUrl
       }
     },
     firestore() {
@@ -130,9 +198,30 @@
       }
     },
     methods: {
+      // phone表示
+      showPhone: function () {
+        console.log(this.phoneImageUrl)
+        this.phoneDialog = true
+      },
       // オーディエンス表示
       showAudience: function () {
-        this.dialog = true
+        this.audienceDialog = true
+      },
+      // timer表示
+      showTimer: function () {
+        this.timerDialog = true
+      },
+      // 50:50
+      halfAnswer: function () {
+        // 正解とランダムなひとつを外した配列を作成
+        let disableAnswerNum = _.shuffle(
+            [0, 1, 2, 3].filter(n => n !== this.correctAnswer))
+        disableAnswerNum.pop()
+        // 非表示にする
+        disableAnswerNum.forEach(n =>
+            document.getElementsByClassName(`answer-btn-${n}`)[0].classList.add(
+                "answer-btn-disabled")
+        )
       },
       // 回答への遷移
       toAnswer: function (questionId, index) {
@@ -198,6 +287,10 @@
       &::after {
         content: "D";
       }
+    }
+
+    &.answer-btn-disabled {
+      display: none !important;
     }
   }
 

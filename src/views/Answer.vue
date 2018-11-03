@@ -19,7 +19,18 @@
              class="font-weight-bold" fab small>
         <v-icon>image</v-icon>
       </v-btn>
+      <v-btn @click="showAnswerMovie" v-if="answerMovieTag !== ''" color="primary"
+             class="font-weight-bold" fab small>
+        <v-icon>movie</v-icon>
+      </v-btn>
     </h2>
+    <!--回答動画-->
+    <v-dialog
+        v-model="answerMovieDialog"
+        max-width="900"
+    >
+      <div v-html="answerMovieTag"></div>
+    </v-dialog>
     <!--回答画像-->
     <v-dialog
         v-model="answerImageDialog"
@@ -69,6 +80,7 @@
     data() {
       return {
         answerImageDialog: false,
+        answerMovieDialog: false,
       }
     },
     computed: {
@@ -90,11 +102,17 @@
       answerImages: function () {
         return this.$store.state.questions[this.questionId].answerImages
       },
+      answerMovieTag: function () {
+        return this.$store.state.questions[this.questionId].answerMovieTag
+      },
       isCorrect: function () {
         return this.correctAnswer === this.answerNumber
       },
     },
     methods: {
+      showAnswerMovie: function () {
+        this.answerMovieDialog = true
+      },
       showAnswerImage: function () {
         this.answerImageDialog = true
       }
