@@ -9,6 +9,7 @@
         v-if="questionImage"
         :src="questionImage"
         :lazy-src="questionImage"
+        style="max-width: 800px; margin: auto;"
     >
       <v-layout
           slot="placeholder"
@@ -200,7 +201,6 @@
     methods: {
       // phone表示
       showPhone: function () {
-        console.log(this.phoneImageUrl)
         this.phoneDialog = true
       },
       // オーディエンス表示

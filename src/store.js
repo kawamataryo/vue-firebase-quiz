@@ -12,7 +12,7 @@ export const initialState = {
         "どこでも「それいけカープ」を大熱唱する",
         "タコを見ると必ず、「三原はタコが有名じゃけ！」と言う",
         "関西弁に全く染まらず、広島弁を押し通した ",
-        "ドライブで必ず流すBGMはポルノグラフティ "
+        "ドライブで必ず流すBGMはポルノグラフィティ "
       ],
       correctAnswer: 0,
       answerImages: [],
@@ -72,7 +72,7 @@ export const initialState = {
       problem: "フジタ君のプロポーズの言葉はどれ？",
       questionImage: "",
       answers: [
-        "高給寿司屋で「三原のタコの吸盤の様にお前を離さない」",
+        "高級寿司屋で「三原のタコの吸盤の様にお前を離さない」",
         "黄金山の夜景の下で「幸せにするけえ、おれと結婚してください」",
         "マツダスタジアムで「生涯をカープとゆかに捧げます」",
         "向島の怪しい漁船の光の下で「ずっと二人で一緒に生きていこう」",
@@ -90,7 +90,7 @@ export const initialState = {
   // 画面遷移制御ユーザーかどうかの判定（true:遷移を制御）
   syncUser: true,
   // １問あたりの相談時間
-  consultationTime: 30,
+  consultationTime: 15,
   // テレフォンで移す画像
   phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/phone-mock1.png?alt=media&token=2fddbbc3-e675-4062-b936-f822bfdc9c89"
 
