@@ -13,7 +13,7 @@
               },
               dataLabels: {
                 style: {
-                  fontSize: '20px',
+                  fontSize: '0px',
                 },
               },
               xaxis: {
@@ -60,16 +60,16 @@
         pagingWait: db.collection('waitStatus').limit(1),
         audience1: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "0"),
+            "==", 0),
         audience2: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "1"),
+            "==", 1),
         audience3: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "2"),
+            "==", 2),
         audience4: db.collection('audience').where("question", "==", this.questionId).where(
             "answer",
-            "==", "3")
+            "==", 3)
       }
     },
   }

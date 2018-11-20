@@ -120,7 +120,7 @@
     mounted() {
       // scoreのプラス
       if (this.isCorrect) {
-        this.$store.commit('addScore', 10)
+        this.$store.commit('addScore', 20)
       }
       //firestoreへの保存
       let now = new Date()
