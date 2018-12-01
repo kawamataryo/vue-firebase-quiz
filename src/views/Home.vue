@@ -2,6 +2,8 @@
   <div>
     <img src="@/assets/top-pc.png" class="top-image hidden-xs-only">
     <img src="@/assets/top.png" class="top-image mt-4 hidden-sm-and-up">
+    <v-btn dark eop-action="click" eop-contents="home-click1" class="eop">click</v-btn>
+    <v-btn dark eop-action="click" eop-contents="home-click2" class="eop">click</v-btn>
     <div>
       <router-link to="/selecttable">
         <img src="@/assets/button.png" class="top-button mt-4">

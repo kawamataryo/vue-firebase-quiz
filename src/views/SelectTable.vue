@@ -2,6 +2,9 @@
   <div>
     <h1>テーブル選択</h1>
     <p>招待状を元に自分たちのテーブルを選択して下さい</p>
+    <v-btn dark eop-action="click" eop-contents="select-click1" class="eop">click1</v-btn>
+    <v-btn dark eop-action="click" eop-contents="select-click2" class="eop">click2</v-btn>
+    <v-btn dark eop-action="click" eop-contents="select-click3" class="eop">click3</v-btn>
     <v-img
         max-width="100px"
         :src="require('../assets/brideAndGroom.png')"
