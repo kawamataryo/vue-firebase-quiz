@@ -7,75 +7,74 @@ Vue.use(Vuex)
 export const initialState = {
   questions: [
     {
-      problem: "大学時代、滋賀県にいながらも広島愛を押し出してきたエピソードとは？",
+      problem: "問題文1デモ問題文デモ問題文デモ問題文デモ問題文デモ問題文デモ",
       answers: [
-        "どこでも「それいけカープ」を大熱唱する",
-        "タコを見ると必ず、「三原はタコが有名じゃけ！」と言う",
-        "関西弁に全く染まらず、広島弁を押し通した ",
-        "ドライブで必ず流すBGMはポルノグラフィティ "
+        "答え1",
+        "答え2",
+        "答え3",
+        "答え4"
       ],
       correctAnswer: 0,
       answerImages: [],
-      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/2EYflBja9Gc?controls=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/9kRgVxULbag' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
       nextQuestion: 1,
     },
     {
-      problem: "大学時代、苦労してた友人のためにフジタ君してあげたことは？",
+      problem: "問題文2デモ問題文デモ問題文デモ問題文デモ問題文デモ問題文デモ",
       questionImage: "",
       answers: [
-        "バイト明けの友達のためにご飯を作ってあげた。",
-        "友達が出席できない授業を変わりに受けてあげた。 ",
-        "恋の悩みを朝まで文句を言わずに聞いてくれた ",
-        "体調を崩した友人に薬を届けてあげた"
+        "答え1",
+        "答え2",
+        "答え3",
+        "答え4"
       ],
       correctAnswer: 0,
       answerImages: [
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/niku.jpg?alt=media&token=babed7bd-9a33-4fac-82c8-1813f4987fc6'
+        'https://www.pakutaso.com/shared/img/thumb/TOMcatDSC01768_TP_V.jpg'
       ],
       answerMovieTag: "",
       nextQuestion: 2,
     },
     {
-      problem: "大学時代、旅行中にフジタ君が取らなかった行動は？",
+      problem: "問題文3デモ問題文デモ問題文デモ問題文デモ問題文デモ問題文デモ",
       questionImage: "",
       answers: [
-        "厳島神社で、参拝時に気功砲を放った",
-        "石垣島で皆が釣りする中、一人素潜りで漁をした",
-        "カチカチ山で 悪だぬきを成敗した",
-        "宮島で鹿のものまねをした",
+        "答え1",
+        "答え2",
+        "答え3",
+        "答え4"
       ],
       correctAnswer: 1,
       answerImages: [
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/tanuki%20(1).jpg?alt=media&token=56bddf1e-f817-4f2b-bf08-800d05390de1',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/kikou%20(2).JPG?alt=media&token=b8bb88fa-20ad-4365-9cc5-e4e0601d6817',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika%20(1).JPG?alt=media&token=3a34ce7b-b33d-4f9b-b922-074e2e536e3f',
-        'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/shika-tukky.JPG?alt=media&token=241faee7-fc5f-41f2-8808-7e6eae5966d0',
+        'https://www.pakutaso.com/shared/img/thumb/GREEN_YU20140125_TP_V.jpg',
+        'https://www.pakutaso.com/shared/img/thumb/ookawaIMGL1724_TP_V.jpg',
+        'https://www.pakutaso.com/shared/img/thumb/GREEN_YO20140125_TP_V.jpg',
       ],
       answerMovieTag: "",
       nextQuestion: 3,
     },
     {
-      problem: "ズバリこの後フジタ君は何をした？ ",
-      questionImage: 'https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/IMG_0483%20(1).jpg?alt=media&token=94f3aee1-6aa9-4c7f-858d-e75f6d1ba21e',
+      problem: "問題文4デモ問題文デモ問題文デモ問題文デモ問題文デモ問題文デモ",
+      questionImage: 'https://www.pakutaso.com/shared/img/thumb/GREEN_YO20140125_TP_V.jpg',
       answers: [
-        "日本酒を瓶毎一気飲みし始めた",
-        "部屋中にファブリーズを噴射し踊った",
-        "百面相を披露した",
-        "カメラに向かって投げキッス",
+        "答え1",
+        "答え2",
+        "答え3",
+        "答え4"
       ],
       correctAnswer: 2,
       answerImages: [],
-      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/_j4uw2m6Qgk?controls=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+      answerMovieTag: "<iframe width='900' height='513' src='https://www.youtube.com/embed/z6hQqgvGI4Y' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
       nextQuestion: 4,
     },
     {
-      problem: "フジタ君のプロポーズの言葉はどれ？",
+      problem: "問題文5デモ問題文デモ問題文デモ問題文デモ問題文デモ問題文デモ",
       questionImage: "",
       answers: [
-        "高級寿司屋で「三原のタコの吸盤の様にお前を離さない」",
-        "黄金山の夜景の下で「幸せにするけえ、おれと結婚してください」",
-        "マツダスタジアムで「生涯をカープとゆかに捧げます」",
-        "向島の怪しい漁船の光の下で「ずっと二人で一緒に生きていこう」",
+        "答え1",
+        "答え2",
+        "答え3",
+        "答え4"
       ],
       correctAnswer: 3,
       answerImages: [],
@@ -92,7 +91,7 @@ export const initialState = {
   // １問あたりの相談時間
   consultationTime: 15,
   // テレフォンで移す画像
-  phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/phone-mock1.png?alt=media&token=2fddbbc3-e675-4062-b936-f822bfdc9c89"
+  phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202018-12-14%2019.50.59.png?alt=media&token=1364f487-e6a3-4a06-8a58-31eac6a08179"
 
 }
 

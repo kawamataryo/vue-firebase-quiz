@@ -33,8 +33,8 @@
     >
       <v-card class="result-panel">
         <v-img
-            src="https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/futta.jpg?alt=media&token=48eea7ab-244b-456b-aafe-d24fb24643f0"></v-img>
-        <h1 class="result-one-name">ゆかちゃん</h1>
+            src="https://www.pakutaso.com/shared/img/thumb/POK140321334108_TP_V.jpg"></v-img>
+        <h1 class="result-one-name">デモさん</h1>
       </v-card>
     </v-dialog>
     <v-dialog

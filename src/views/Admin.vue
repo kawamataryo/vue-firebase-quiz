@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-btn @click="WaitRelease()">遷移制御解除</v-btn>
+  <div class="admin-view">
+    <v-btn @click="WaitRelease()" color="primary">制御解除</v-btn>
   </div>
 </template>
 
@@ -38,6 +38,18 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .admin-view {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 80%;
+      height: 15%;
+      font-size: 2.1rem;
+      font-weight: bold;
+    }
+  }
 
 </style>
