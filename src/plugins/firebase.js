@@ -9,11 +9,12 @@ Vue.use(VueFire)
 const firebaseApp = firebase.initializeApp({
   // Populate your firebase configuration data here.
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "futta-marry.firebaseapp.com",
-  databaseURL: "https://futta-marry.firebaseio.com",
-  projectId: "futta-marry",
-  storageBucket: "",
-  messagingSenderId: "703492354241"
+  authDomain: "fir-uug.firebaseapp.com",
+  databaseURL: "https://fir-uug.firebaseio.com",
+  projectId: "fir-uug",
+  storageBucket: "fir-uug.appspot.com",
+  messagingSenderId: "297246453909",
+  appId: "1:297246453909:web:f50d69c2cce6a6d0"
 });
 
 // Export the database for components to use.
