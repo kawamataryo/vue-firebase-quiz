@@ -92,7 +92,7 @@ export const initialState = {
   // １問あたりの相談時間
   consultationTime: 15,
   // テレフォンで移す画像
-  phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/futta-marry.appspot.com/o/phone-mock1.png?alt=media&token=2fddbbc3-e675-4062-b936-f822bfdc9c89"
+  phoneImageUrl: "https://firebasestorage.googleapis.com/v0/b/marry-quiz.appspot.com/o/phone-mock1.png?alt=media&token=9d3856ab-745b-4645-a9bd-34c0cb8a1d8f"
 
 }
 
@@ -114,6 +114,5 @@ const mutations = {
 export default new Vuex.Store({
   state: initialState,
   mutations: mutations,
-  actions: {},
-  plugins: [createPersistedState()]
+  actions: {}
 })
