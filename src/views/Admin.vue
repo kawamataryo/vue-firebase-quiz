@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-btn @click="WaitRelease()">遷移制御解除</v-btn>
+  <div style="height: 100%; display: flex;align-items: center; justify-content: center; flex-direction: column">
+    <v-btn @click="WaitRelease()" large color="primary" class="font-weight-bold title" style="font-size: 30px !important; width: 100%; height: 150px;">遷移制御解除</v-btn>
   </div>
 </template>
 
