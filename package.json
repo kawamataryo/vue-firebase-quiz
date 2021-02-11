@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
-    "apexcharts": "^2.1.4",
+    "apexcharts": "^3.24.0",
     "firebase": "^5.5.4",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
