@@ -12,7 +12,7 @@
     "apexcharts": "^2.1.4",
     "firebase": "^5.5.4",
     "lodash": "^4.17.11",
-    "node-sass": "^4.9.4",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-apexcharts": "^1.2.2",
